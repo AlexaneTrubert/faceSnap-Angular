@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { FaceSnap } from '../../../core/models/face-snap.model';
 import { FaceSnapsService } from '../../../core/services/face-snaps.service';
 
@@ -16,6 +16,7 @@ export class FaceSnapListComponent implements OnInit {
   ngOnInit(): void {
     this.faceSnapsService.getAllFaceSnaps().subscribe(faceSnaps => {
       this.faceSnaps = faceSnaps;
+      console.log(faceSnaps);
     });
   }
 

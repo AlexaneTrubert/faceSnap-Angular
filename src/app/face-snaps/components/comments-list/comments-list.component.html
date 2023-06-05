@@ -1,4 +1,9 @@
-<div class="face-snap-card">
-  <p>Commenté le xx:xx:xx à xx:xx</p>
-  <p>Description</p>
+<div class="face-snap-title" *ngIf="comments.length > 1">
+  <h2>Liste des commentaires</h2>
+</div>
+
+<div class="face-snap-card" *ngFor="let comment of comments">
+  <p>{{ comment.name }}</p>
+  <p>{{ comment.comment }}</p>
+  <span>{{ comment.ts|date: 'dd/MM/yyyy'}}</span>
 </div>

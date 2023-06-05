@@ -7,6 +7,7 @@ import {SingleFaceSnapComponent} from "./components/single-face-snap/single-face
 import {ReactiveFormsModule} from "@angular/forms";
 import {FaceSnapsRoutingModule} from "./face-snaps-routing.module";
 import {CommentsListComponent} from "./components/comments-list/comments-list.component";
+import {SingleCommentComponent} from "./components/single-comment/single-comment.component";
 
 
 @NgModule({
@@ -15,19 +16,21 @@ import {CommentsListComponent} from "./components/comments-list/comments-list.co
     FaceSnapListComponent,
     NewFaceSnapComponent,
     SingleFaceSnapComponent,
-    CommentsListComponent
+    CommentsListComponent,
+    SingleCommentComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FaceSnapsRoutingModule
+    FaceSnapsRoutingModule,
   ],
   exports: [
     FaceSnapComponent,
     FaceSnapListComponent,
     NewFaceSnapComponent,
     SingleFaceSnapComponent,
-    CommentsListComponent
+    CommentsListComponent,
+    SingleCommentComponent
   ]
 })
 export class FaceSnapsModule { }

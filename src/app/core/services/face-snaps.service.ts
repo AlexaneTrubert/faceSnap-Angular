@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {FaceSnap} from '../models/face-snap.model';
+import {Comment} from "../models/comment.model";
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {map, switchMap} from "rxjs/operators";
@@ -13,6 +14,7 @@ export class FaceSnapsService {
   }
 
   faceSnaps!: FaceSnap[];
+  comment!: Comment[];
 
   getAllFaceSnaps(): Observable<FaceSnap[]> {
     return this.http.get<any>('http://localhost:5000/facesnaps').pipe(
@@ -54,9 +56,10 @@ export class FaceSnapsService {
       switchMap(newFaceSnap => this.http.post<any>('http://localhost:5000/facesnaps', newFaceSnap, {headers: httpOptions})));
   }
 
-  getCommentsByFaceSnapId(faceSnapId: number): Observable<any> {
-    return this.http.get<any>(`http://localhost:5000/facesnaps/${faceSnapId}/comments`).pipe(
-      map(response => response.comments)
-    );
+  getCommentsByFaceSnapId(faceSnapId: number): Observable<Comment[]>
+  {
+      return this.http.get<any>(`http://localhost:5000/commentaires/${faceSnapId}`).pipe(
+        map(response => response.commentaires)
+      );
   }
 }

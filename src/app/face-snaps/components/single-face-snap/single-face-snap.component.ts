@@ -13,7 +13,6 @@ import {tap} from "rxjs/operators";
 export class SingleFaceSnapComponent implements OnInit {
   faceSnap$!: Observable<FaceSnap>;
   buttonText!: string;
-  comments$!: Observable<Comment[]>;
 
   constructor(private faceSnapsService: FaceSnapsService,
               private route: ActivatedRoute) {
@@ -23,7 +22,6 @@ export class SingleFaceSnapComponent implements OnInit {
     this.buttonText = 'Oh Snap!';
     const faceSnapId = +this.route.snapshot.params['id'];
     this.faceSnap$ = this.faceSnapsService.getFaceSnapById(faceSnapId);
-    this.comments$ = this.faceSnapsService.getCommentsByFaceSnapId(faceSnapId);
   }
 
   onSnap(id: number) {
